@@ -1,0 +1,52 @@
+import turtle
+import random
+
+# Creación de la tortuga
+tortuga = turtle.Turtle()
+tortuga.hideturtle()
+tortuga.color("blue")
+tortuga.penup()
+tortuga.goto(-100, -100)
+tortuga.pendown()
+for _ in range(4):
+ tortuga.forward(200)
+ tortuga.left(90)
+tortuga.penup()
+
+# Creación de la tortuga
+tortuga = turtle.Turtle()
+tortuga.shape("turtle")
+tortuga.color("red")
+tortuga.penup()
+tortuga.speed(3)
+tortuga.dx = random.choice([-1, 1]) * random.uniform(1, 3)
+tortuga.dy = random.choice([-1, 1]) * random.uniform(1, 3)
+
+# Función para verificar y corregir la posición de la tortuga
+def verificar_posicion():
+    x, y = tortuga.position()
+    if x > 290 or x < -290:
+        tortuga.setheading(100 - tortuga.heading())
+    if y > 290 or y < -290:
+        tortuga.setheading(-tortuga.heading())
+
+# Funciones para mover la tortuga
+def move():
+    tortuga.setx(tortuga.xcor() + tortuga.dx)
+    tortuga.sety(tortuga.ycor() + tortuga.dy)
+    
+# Dimensiones del cuadrado
+lado = 100
+
+# Definir bordes del cuadrado
+def check_borders():
+    if tortuga.xcor() + 10 >= lado / 1 or tortuga.xcor() - 10 <= -lado / 1:
+        tortuga.dx *= -1
+    if tortuga.ycor() + 10 >= lado / 1 or tortuga.ycor() - 10 <= -lado / 1:
+        tortuga.dy *= -1
+
+# Bucle principal del juego
+while True:
+    move()
+    check_borders()
+  
