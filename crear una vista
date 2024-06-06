@@ -1,0 +1,33 @@
+SELECT first_name, age
+FROM Customers;
+
+--drop table Proveedores 
+create table Proveedores (
+proveedor_id varchar (100),
+ombre varchar (100),
+apellido varchar (100),
+edad int 
+);
+
+select* from proveedor
+where lower (nombre)
+insert into Proveedor (Proveedor_id, Nombre, Apellido, Edad) 
+values 
+(1, "Andres", "Hernandez", 32),
+(2,"Pablo","Perez", 30),
+(3, "Jon", "Anderson" 27 ),
+(4, "Nicolas", "Hernandez",25),
+(5, "Victor", "Espitia", 27),
+(8, "felipe","cortes",28),
+(9,"Joseth","Ramirez",23),
+(10, "Alejandro","Arias",29);
+--union / union all
+create view premios as -- crear una vista (en el mundo laboral esto se usa mucho)
+select customers_id, first_name, last_name, age
+from customers
+union
+select proveedor_id, nombre, apellido, edad
+from proveedor
+-- el primer select indicara cual es la tabla que va a mostrar si es proveedores o customers
+select * from premios
+
