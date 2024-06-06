@@ -1,0 +1,12 @@
+trigger sentence
+
+DELIMITER $$
+create trigger consistCountryLang
+before insert
+on countryLanguage
+FOR EACH ROW
+BEGIN
+
+
+END$$
+DELIMITER ;
